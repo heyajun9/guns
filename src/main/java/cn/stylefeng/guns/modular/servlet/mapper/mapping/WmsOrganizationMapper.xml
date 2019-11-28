@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsOrganizationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsOrganization">
+        <id column="lius_no" property="lius_no" />
+        <result column="danw_id" property="danw_id" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="danw_no" property="danw_no" />
+        <result column="danw_name" property="danw_name" />
+        <result column="zhuj_code" property="zhuj_code" />
+        <result column="beactive" property="beactive" />
+        <result column="gengx_time" property="gengx_time" />
+        <result column="danw_simplename" property="danw_simplename" />
+        <result column="yew_staff" property="yew_staff" />
+        <result column="address" property="address" />
+        <result column="shouh_phone" property="shouh_phone" />
+        <result column="shouh_staff" property="shouh_staff" />
+        <result column="postcode" property="postcode" />
+        <result column="zt" property="zt" />
+        <result column="yaojno" property="yaojno" />
+        <result column="xukz_no" property="xukz_no" />
+        <result column="xukz_yxqdate" property="xukz_yxqdate" />
+        <result column="yingyzz_yxqdate" property="yingyzz_yxqdate" />
+        <result column="zzjgdmz_no" property="zzjgdmz_no" />
+        <result column="zzjgdmz_flg" property="zzjgdmz_flg" />
+        <result column="zzjgdmz_yxqdate" property="zzjgdmz_yxqdate" />
+        <result column="gmp_no" property="gmp_no" />
+        <result column="gmp_flg" property="gmp_flg" />
+        <result column="gmp_yxqdate" property="gmp_yxqdate" />
+        <result column="gsp_no" property="gsp_no" />
+        <result column="gsp_flg" property="gsp_flg" />
+        <result column="gsp_yxqdate" property="gsp_yxqdate" />
+        <result column="wts_yxqdate" property="wts_yxqdate" />
+        <result column="xy_yxqdate" property="xy_yxqdate" />
+        <result column="swdjz_flg" property="swdjz_flg" />
+        <result column="yzym_flg" property="yzym_flg" />
+        <result column="khhxkz_flg" property="khhxkz_flg" />
+        <result column="yingyzz_flg" property="yingyzz_flg" />
+        <result column="yingyzz_no" property="yingyzz_no" />
+        <result column="city" property="city" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      lius_no           AS    "lius_no"         ,
+      danw_id           AS    "danw_id"         ,
+      wlzx_code         AS    "wlzx_code"       ,
+      huoz_id           AS    "huoz_id"         ,
+      danw_no           AS    "danw_no"         ,
+      danw_name         AS    "danw_name"       ,
+      zhuj_code         AS    "zhuj_code"       ,
+      beactive          AS    "beactive"        ,
+      gengx_time        AS    "gengx_time"      ,
+      danw_simplename   AS    "danw_simplename" ,
+      yew_staff         AS    "yew_staff"       ,
+      address           AS    "address"         ,
+      shouh_phone       AS    "shouh_phone"     ,
+      shouh_staff       AS    "shouh_staff"     ,
+      postcode          AS    "postcode"        ,
+      zt                AS    "zt"              ,
+      yaojno            AS    "yaojno"          ,
+      xukz_no           AS    "xukz_no"         ,
+      xukz_yxqdate      AS    "xukz_yxqdate"    ,
+      yingyzz_yxqdate   AS    "yingyzz_yxqdate" ,
+      zzjgdmz_no        AS    "zzjgdmz_no"      ,
+      zzjgdmz_flg       AS    "zzjgdmz_flg"     ,
+      zzjgdmz_yxqdate   AS    "zzjgdmz_yxqdate" ,
+      gmp_no            AS    "gmp_no"          ,
+      gmp_flg           AS    "gmp_flg"         ,
+      gmp_yxqdate       AS    "gmp_yxqdate"     ,
+      gsp_no            AS    "gsp_no"          ,
+      gsp_flg           AS    "gsp_flg"         ,
+      gsp_yxqdate       AS    "gsp_yxqdate"     ,
+      wts_yxqdate       AS    "wts_yxqdate"     ,
+      xy_yxqdate        AS    "xy_yxqdate"      ,
+      swdjz_flg         AS    "swdjz_flg"       ,
+      yzym_flg          AS    "yzym_flg"        ,
+      khhxkz_flg        AS    "khhxkz_flg"      ,
+      yingyzz_flg       AS    "yingyzz_flg"     ,
+      yingyzz_no        AS    "yingyzz_no"      ,
+      city              AS    "city"
+    </sql>
+
+    <select id="selectOrganization" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_jc_dwzl
+        <if test="organizationName != null">
+            where danw_name like CONCAT('%',CONCAT(#{organizationName},'%'))
+        </if>
+        <if test="organizationCode != null and organizationCode !=''">
+            and danw_id like CONCAT('%',CONCAT(#{organizationCode},'%'))
+        </if>
+        order by lius_no asc
+    </select>
+
+</mapper>

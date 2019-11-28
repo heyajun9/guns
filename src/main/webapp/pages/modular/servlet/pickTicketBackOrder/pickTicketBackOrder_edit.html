@@ -1,0 +1,22 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/servlet/pickTicketBackOrder/pickTicketBackOrder_edit.js"]}){
+<form id="pickTicketBackOrderForm" lay-filter="pickTicketBackOrderForm" class="layui-form model-form">
+    <input name="pickticketback_id" type="hidden"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label">单据号<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="danj_no" placeholder="请输入单据号" type="text" class="layui-input" lay-verify="required" required/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input type="radio" name="zt" value="R" title="已推送" checked/>
+            <input type="radio" name="zt" value="N" title="未推送"/>
+        </div>
+    </div>
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+@}

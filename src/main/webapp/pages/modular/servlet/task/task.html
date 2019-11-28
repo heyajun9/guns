@@ -1,0 +1,53 @@
+@layout("/common/_container.html",{js:["/assets/modular/servlet/task/task.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">定时任务管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="jobName" class="layui-input" type="text" placeholder="任务名称"/>
+                            </div>
+                            <div class="layui-inline">
+                                <input id="className" class="layui-input" type="text" placeholder="类名"/>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
+                                @if(shiro.hasPermission("/task/add")){
+                                <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
+                                @}
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="taskTable" lay-filter="taskTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    @if(shiro.hasPermission("/task/edit")){
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    @}
+    @if(shiro.hasPermission("/task/delete")){
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+    @}
+    @if(shiro.hasPermission("/task/startTask")){
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="startTask">启动</a>
+    @}
+    @if(shiro.hasPermission("/task/endTask")){
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="endTask">关闭</a>
+    @}
+    @if(shiro.hasPermission("/task/startOnce")){
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="startOnce">立即执行</a>
+    @}
+</script>
+
+@}

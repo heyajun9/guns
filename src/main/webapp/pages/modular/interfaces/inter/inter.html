@@ -1,0 +1,71 @@
+@layout("/common/_container.html",{js:["/assets/modular/interfaces/inter/inter.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">接口管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="interfaceName" class="layui-input" type="text" placeholder="接口名称"/>
+                            </div>
+                            <div class="layui-inline">
+                                <select id="transferType">
+                                    <option value="">传输类型</option>
+                                    <option value="UP">上传</option>
+                                    <option value="DOWN">下传</option>
+                                </select>
+                            </div>
+                            <div class="layui-inline">
+                                <select id="interfaceType">
+                                    <option value="">接口类型</option>
+                                    <option value="I">入库上传</option>
+                                    <option value="O">出库上传</option>
+                                    <option value="P">盘点上传</option>
+                                    <option value="K">库存上传</option>
+                                    <option value="W">物料下传</option>
+                                    <option value="C">单位下传</option>
+                                    <option value="R">入库下传</option>
+                                    <option value="X">出库下传</option>
+                                    <option value="Z">职员下传</option>
+                                    <option value="U">库存下传</option>
+                                    <option value="T">盘点下传</option>
+                                </select>
+                            </div>
+                            <div class="layui-inline">
+                                <input id="downTable" class="layui-input" type="text" placeholder="表名"/>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
+                                @if(shiro.hasPermission("/inter/add")){
+                                <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
+                                @}
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="interTable" lay-filter="interTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">报文格式</a>
+    @if(shiro.hasPermission("/inter/edit")){
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    @}
+    @if(shiro.hasPermission("/inter/delete")){
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+    @}
+    @if(shiro.hasPermission("/inter/option")){
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="option">字段关系</a>
+    @}
+</script>
+
+@}

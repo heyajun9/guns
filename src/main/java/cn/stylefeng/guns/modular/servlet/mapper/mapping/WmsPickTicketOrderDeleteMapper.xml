@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsPickTicketOrderDeleteMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsPickTicketOrderDelete">
+        <result column="danj_no" property="danj_no" />
+        <result column="hanghao" property="hanghao" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="riqi_date" property="riqi_date" />
+        <result column="danj_no_y" property="danj_no_y" />
+        <result column="hanghao_y" property="hanghao_y" />
+        <result column="num" property="num" />
+        <result column="yuan_yin" property="yuan_yin" />
+        <result column="note" property="note" />
+        <result column="tiaom_num" property="tiaom_num" />
+        <result column="zt" property="zt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+  danj_no      AS "danj_no"     ,
+  hanghao      AS "hanghao"     ,
+  wlzx_code    AS "wlzx_code"   ,
+  huoz_id      AS "huoz_id"     ,
+  riqi_date    AS "riqi_date"   ,
+  danj_no_y      AS "danj_no_y"     ,
+  hanghao_y  AS "hanghao_y" ,
+  num          AS "num"         ,
+  yuan_yin         AS "yuan_yin"        ,
+  note         AS "note"        ,
+  tiaom_num    AS "tiaom_num"   ,
+  zt           AS "zt"
+    </sql>
+
+    <select id="selectWmsPickTicketOrderDelete" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from INF_CK_KPD_DEL_BILL
+        <if test="orderCode != null">
+            where danj_no like CONCAT('%',CONCAT(#{orderCode},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+    </select>
+
+</mapper>

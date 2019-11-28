@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsAsnBackOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsAsnBackOrder">
+        <id column="id" property="id" />
+        <result column="danj_no" property="danj_no" />
+        <result column="hanghao" property="hanghao" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="riqi_date" property="riqi_date" />
+        <result column="danw_id" property="danw_id" />
+        <result column="caigou_staff" property="caigou_staff" />
+        <result column="caoz_staff" property="caoz_staff" />
+        <result column="zhij_staff" property="zhij_staff" />
+        <result column="shouh_staff" property="shouh_staff" />
+        <result column="ruk_type" property="ruk_type" />
+        <result column="yew_type" property="yew_type" />
+        <result column="hangh_cgd" property="hangh_cgd" />
+        <result column="yewdj_no" property="yewdj_no" />
+        <result column="shangp_id" property="shangp_id" />
+        <result column="lot" property="lot" />
+        <result column="shengchan_char" property="shengchan_char" />
+        <result column="youx_char" property="youx_char" />
+        <result column="num" property="num" />
+        <result column="yans_rlt" property="yans_rlt" />
+        <result column="tiaom_num" property="tiaom_num" />
+        <result column="zt" property="zt" />
+        <result column="error_msg" property="error_msg" />
+        <result column="rkkpd_no" property="rkkpd_no" />
+        <result column="maker" property="maker" />
+        <result column="chandi" property="chandi" />
+        <result column="areacode" property="areacode" />
+        <result column="cunc_condition" property="cunc_condition" />
+        <result column="yn_guid" property="yn_guid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+  danj_no        AS "danj_no"       ,
+  hanghao        AS "hanghao"       ,
+  huoz_id        AS "huoz_id"       ,
+  wlzx_code      AS "wlzx_code"     ,
+  riqi_date      AS "riqi_date"     ,
+  danw_id        AS "danw_id"       ,
+  caigou_staff   AS "caigou_staff"  ,
+  caoz_staff     AS "caoz_staff"    ,
+  zhij_staff     AS "zhij_staff"    ,
+  shouh_staff    AS "shouh_staff"   ,
+  yew_type       AS "yew_type"      ,
+  ruk_type       AS "ruk_type"      ,
+  hangh_cgd      AS "hangh_cgd"     ,
+  yewdj_no       AS "yewdj_no"      ,
+  shangp_id      AS "shangp_id"     ,
+  lot            AS "lot"           ,
+  shengchan_char AS "shengchan_char",
+  youx_char      AS "youx_char"     ,
+  num            AS "num"           ,
+  yans_rlt       AS "yans_rlt"      ,
+  tiaom_num      AS "tiaom_num"     ,
+  zt             AS "zt"            ,
+  error_msg      AS "error_msg"     ,
+  rkkpd_no       AS "rkkpd_no"      ,
+  maker          AS "maker"         ,
+  chandi         AS "chandi"        ,
+  areacode       AS "areacode"     ,
+  cunc_condition AS "cunc_condition",
+  id AS "id",
+  yn_guid      AS "yn_guid"
+    </sql>
+
+    <select id="selectWmsAsnBackOrder" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_rk_sc_bill
+        <if test="orderCode != null">
+            where danj_no like CONCAT('%',CONCAT(#{orderCode},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+        <if test="zt != null and zt!=''">
+            and zt like CONCAT('%',CONCAT(#{zt},'%'))
+        </if>
+        order by id desc
+    </select>
+
+    <select id="selectOrderCode" parameterType="java.util.ArrayList" resultType="string">
+        select danj_no from inf_rk_sc_bill
+        <if test="types != null">
+            where  yew_type in
+            <foreach collection="types" index="index" item="type" open="(" separator="," close=")">
+            #{type}
+            </foreach>
+        </if>
+        and zt='N'
+        order by danj_no asc
+    </select>
+
+    <select id="selectWmsAsBackOrderByCode" resultType="cn.stylefeng.guns.modular.servlet.entity.WmsAsnBackOrder">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_rk_sc_bill
+        <if test="orderCode != null">
+            where danj_no = #{orderCode}
+        </if>
+        and zt='N'
+        order by id asc
+    </select>
+
+    <select id="selectWmsAsnBackOrderList" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_rk_sc_bill
+        <if test="orderCode != null">
+            where danj_no = #{orderCode}
+        </if>
+        and zt='N'
+        order by id asc
+    </select>
+
+    <select id="selectObject" resultType="object">
+        select  ${tableField}
+        from inf_rk_sc_bill
+        <if test="orderCode != null">
+            where danj_no = #{orderCode}
+        </if>
+        <if test="rowNum != null">
+            and hanghao = #{rowNum}
+        </if>
+        order by id asc
+    </select>
+
+</mapper>

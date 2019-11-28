@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.interfaces.mapper.InterMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.interfaces.entity.Inter">
+        <id column="inter_id" property="interId" />
+        <result column="interface_type" property="interfaceType" />
+        <result column="transfer_type" property="transferType" />
+        <result column="interface_name" property="interfaceName" />
+        <result column="beactive" property="beactive" />
+        <result column="up_method" property="upMethod" />
+        <result column="up_method_detail" property="upMethodDetail" />
+        <result column="data_method" property="data_method" />
+        <result column="url" property="url" />
+        <result column="down_method" property="downMethod" />
+        <result column="down_method_detail" property="downMethodDetail" />
+        <result column="up_table" property="upTable" />
+        <result column="up_table_construct" property="upTableConstruct" />
+        <result column="down_table" property="downTable" />
+        <result column="down_table_construct" property="downTableConstruct" />
+        <result column="message_context" property="messageContext" />
+        <result column="down_produce" property="downProduce" />
+        <result column="down_produce_params" property="downProduceParams" />
+        <result column="detail" property="detail" />
+        <result column="userName" property="userName" />
+        <result column="password" property="password" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        inter_id AS "interId", interface_type AS "interfaceType",transfer_type AS "transferType", interface_name AS "interfaceName", beactive AS "beactive", up_method AS "upMethod", up_method_detail AS "upMethodDetail", url AS "url", down_method AS "downMethod", down_method_detail AS "downMethodDetail",
+        up_table AS "upTable",data_method AS "dataMethod", up_table_construct AS "upTableConstruct",down_table AS "downTable",down_table_construct AS "downTableConstruct",message_context AS "messageContext",down_produce AS "downProduce",down_produce_params AS "downProduceParams",detail AS "detail",
+        userName AS "userName",password AS "password"
+    </sql>
+
+    <select id="selectInter" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inter_opt
+        <if test="condition != null">
+            where interface_name like CONCAT('%',CONCAT(#{condition},'%'))
+        </if>
+        <if test="interfaceType != null and interfaceType !=''">
+            and interface_type like CONCAT('%',CONCAT(#{interfaceType},'%'))
+        </if>
+        <if test="downTable != null and downTable !=''">
+            and down_table like CONCAT('%',CONCAT(#{downTable},'%'))
+        </if>
+        order by inter_id asc
+    </select>
+
+    <select id="selectInterByType" resultType="cn.stylefeng.guns.modular.interfaces.entity.Inter">
+        select
+        <include refid="Base_Column_List"/>
+        from inter_opt
+        <if test="type != null">
+            where interface_type=#{type}
+        </if>
+        and beactive = 'Y'
+        order by inter_id asc
+    </select>
+
+    <update id="setStatus">
+		update inter_opt set beactive = #{status} where inter_id = #{interId}
+	</update>
+
+    <select id="getByName" resultType="cn.stylefeng.guns.modular.interfaces.entity.Inter">
+        select
+        <include refid="Base_Column_List"/>
+        from inter_opt where interface_name = #{name }
+    </select>
+
+</mapper>

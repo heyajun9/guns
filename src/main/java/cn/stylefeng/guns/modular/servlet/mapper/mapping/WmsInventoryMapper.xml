@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsInventory">
+        <id column="huoz_id" property="huoz_id" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="shangp_no" property="shangp_no" />
+        <result column="lot" property="lot" />
+        <result column="num" property="num" />
+        <result column="baoz_danw" property="baoz_danw" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+     huoz_id             AS    "huoz_id"                 ，
+     wlzx_code    AS    "wlzx_code"               ，
+     shangp_no             AS    "shangp_no"               ，
+     lot             AS    "lot"               ，
+     num               AS    "num"                 ，
+     baoz_danw           AS    "baoz_danw"            ，
+     create_time     AS    "create_time"
+    </sql>
+
+    <select id="selectInventory" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from kc_spph_sap
+        <if test="itemCode != null">
+            where shangp_no like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+        <if test="organization != null and organization !=''">
+            and huoz_id like CONCAT('%',CONCAT(#{organization},'%'))
+        </if>
+    </select>
+
+</mapper>

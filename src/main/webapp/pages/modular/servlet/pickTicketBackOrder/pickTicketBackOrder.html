@@ -1,0 +1,48 @@
+@layout("/common/_container.html",{js:["/assets/modular/servlet/pickTicketBackOrder/pickTicketBackOrder.js"]}){
+
+<div class="layui-body-header">
+    <span class="layui-body-header-title">出库回传管理</span>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <input id="danj_no" class="layui-input" type="text" placeholder="订单号"/>
+                            </div>
+                            <div class="layui-inline">
+                                <input id="shangp_id" class="layui-input" type="text" placeholder="物料编号"/>
+                            </div>
+                            <div class="layui-inline">
+                                <select id="zt">
+                                    <option value="">状态</option>
+                                    <option value="">全部</option>
+                                    <option value="N">未推送</option>
+                                    <option value="R">失败</option>
+                                    <option value="Z">等待</option>
+                                    <option value="Y">成功</option>
+                                </select>
+                            </div>
+                            <div class="layui-inline">
+                                <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="pickTicketBackOrderTable" lay-filter="pickTicketBackOrderTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tableBar">
+    @if(shiro.hasPermission("/pickTicketBackOrder/edit")){
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    @}
+</script>
+
+@}

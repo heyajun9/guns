@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="webservice.edi.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WmsBaseInfoWebServiceService" targetNamespace="webservice.edi.com">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="webservice.edi.com" elementFormDefault="unqualified" targetNamespace="webservice.edi.com" version="1.0">
+
+  <xs:element name="saveCustomers" type="tns:saveCustomers"/>
+
+  <xs:element name="saveCustomersResponse" type="tns:saveCustomersResponse"/>
+
+  <xs:element name="saveOrUpdateExchangeData" type="tns:saveOrUpdateExchangeData"/>
+
+  <xs:element name="saveOrUpdateExchangeDataResponse" type="tns:saveOrUpdateExchangeDataResponse"/>
+
+  <xs:element name="saveProducts" type="tns:saveProducts"/>
+
+  <xs:element name="saveProductsResponse" type="tns:saveProductsResponse"/>
+
+  <xs:element name="saveoperators" type="tns:saveoperators"/>
+
+  <xs:element name="saveoperatorsResponse" type="tns:saveoperatorsResponse"/>
+
+  <xs:complexType name="saveCustomers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="customers" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveCustomersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveoperators">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employees" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveoperatorsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveOrUpdateExchangeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceType" type="xs:string"/>
+      <xs:element minOccurs="0" name="operatorType" type="xs:string"/>
+      <xs:element minOccurs="0" name="data" type="xs:string"/>
+      <xs:element minOccurs="0" name="msgid" type="xs:string"/>
+      <xs:element minOccurs="0" name="parnerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="partnerKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="sign" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveOrUpdateExchangeDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveProducts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="products" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveProductsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="saveOrUpdateExchangeDataResponse">
+    <wsdl:part element="tns:saveOrUpdateExchangeDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveCustomers">
+    <wsdl:part element="tns:saveCustomers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveoperators">
+    <wsdl:part element="tns:saveoperators" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveCustomersResponse">
+    <wsdl:part element="tns:saveCustomersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveoperatorsResponse">
+    <wsdl:part element="tns:saveoperatorsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveProductsResponse">
+    <wsdl:part element="tns:saveProductsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveOrUpdateExchangeData">
+    <wsdl:part element="tns:saveOrUpdateExchangeData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveProducts">
+    <wsdl:part element="tns:saveProducts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WmsBaseInfoWebService">
+    <wsdl:operation name="saveCustomers">
+      <wsdl:input message="tns:saveCustomers" name="saveCustomers">
+    </wsdl:input>
+      <wsdl:output message="tns:saveCustomersResponse" name="saveCustomersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveoperators">
+      <wsdl:input message="tns:saveoperators" name="saveoperators">
+    </wsdl:input>
+      <wsdl:output message="tns:saveoperatorsResponse" name="saveoperatorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveOrUpdateExchangeData">
+      <wsdl:input message="tns:saveOrUpdateExchangeData" name="saveOrUpdateExchangeData">
+    </wsdl:input>
+      <wsdl:output message="tns:saveOrUpdateExchangeDataResponse" name="saveOrUpdateExchangeDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveProducts">
+      <wsdl:input message="tns:saveProducts" name="saveProducts">
+    </wsdl:input>
+      <wsdl:output message="tns:saveProductsResponse" name="saveProductsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WmsBaseInfoWebServiceServiceSoapBinding" type="tns:WmsBaseInfoWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="saveCustomers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveCustomers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveCustomersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveoperators">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveoperators">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveoperatorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveOrUpdateExchangeData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveOrUpdateExchangeData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveOrUpdateExchangeDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveProducts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveProducts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveProductsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WmsBaseInfoWebServiceService">
+    <wsdl:port binding="tns:WmsBaseInfoWebServiceServiceSoapBinding" name="WmsBaseInfoWebServicePort">
+      <soap:address location="http://localhost:8080/services/wmsBaseInfo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

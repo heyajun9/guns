@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsItem">
+        <id column="lius_no" property="lius_no" />
+        <result column="shangp_id" property="shangp_id" />
+        <result column="shangp_no" property="shangp_no" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="chinese_name" property="chinese_name" />
+        <result column="zhuj_code" property="zhuj_code" />
+        <result column="yaop_guig" property="yaop_guig" />
+        <result column="maker" property="maker" />
+        <result column="chandi" property="chandi" />
+        <result column="baoz_num" property="baoz_num" />
+        <result column="baoz_danw" property="baoz_danw" />
+        <result column="chaif_lid" property="chaif_lid" />
+        <result column="kaipdw_min" property="kaipdw_min" />
+        <result column="yaop_category" property="yaop_category" />
+        <result column="cunc_condition" property="cunc_condition" />
+        <result column="beactive" property="beactive" />
+        <result column="zhongbz" property="zhongbz" />
+        <result column="jixing" property="jixing" />
+        <result column="tongy_name" property="tongy_name" />
+        <result column="lot_flg" property="lot_flg" />
+        <result column="zengp_flg" property="zengp_flg" />
+        <result column="jiang_flg" property="jiang_flg" />
+        <result column="fangc_flg" property="fangc_flg" />
+        <result column="tgyp_flg" property="tgyp_flg" />
+        <result column="jink_flg" property="jink_flg" />
+        <result column="yis_flg" property="yis_flg" />
+        <result column="gzyp_flg" property="gzyp_flg" />
+        <result column="yxp_flg" property="yxp_flg" />
+        <result column="caigou_staff" property="caigou_staff" />
+        <result column="ypyh_type" property="ypyh_type" />
+        <result column="geiy_way" property="geiy_way" />
+        <result column="yaop_xingz" property="yaop_xingz" />
+        <result column="shiyz" property="shiyz" />
+        <result column="gengx_time" property="gengx_time" />
+        <result column="yp_flg" property="yp_flg" />
+        <result column="zt" property="zt" />
+        <result column="piz_no" property="piz_no" />
+        <result column="merge_flg" property="merge_flg" />
+        <result column="english_name" property="english_name" />
+        <result column="sf_zdkz" property="sf_zdkz" />
+        <result column="sf_tdyp" property="sf_tdyp" />
+        <result column="shouy_flg" property="shouy_flg" />
+        <result column="sf_zy" property="sf_zy" />
+        <result column="medicinespecicalcontrol" property="medicinespecicalcontrol" />
+        <result column="barcode" property="barcode" />
+        <result column="weight" property="weight" />
+        <result column="height" property="height" />
+        <result column="length" property="length" />
+        <result column="width" property="width" />
+        <result column="youxq_flg" property="youxq_flg" />
+        <result column="forbid_days" property="forbid_days" />
+        <result column="commodity" property="commodity" />
+        <result column="demurrage_day" property="demurrage_day" />
+        <result column="foreboed_days" property="foreboed_days" />
+        <result column="ban_days" property="ban_days" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+     lius_no             AS    "lius_no"                 ，
+     shangp_id    AS    "shangp_id"               ，
+     shangp_no             AS    "shangp_no"               ，
+     wlzx_code             AS    "wlzx_code"               ，
+     huoz_id               AS    "huoz_id"                 ，
+     chinese_name           AS    "chinese_name"            ，
+     zhuj_code     AS    "zhuj_code"               ，
+     yaop_guig     AS    "yaop_guig"               ，
+     maker         AS    "maker"                   ，
+     chandi        AS    "chandi"                  ，
+     baoz_num            AS    "baoz_num"                ，
+     baoz_danw            AS    "baoz_danw"               ，
+     chaif_lid               AS    "chaif_lid"               ，
+     kaipdw_min          AS    "kaipdw_min"              ，
+     yaop_category           AS    "yaop_category"           ，
+     cunc_condition          AS    "cunc_condition"          ，
+     beactive                AS    "beactive"                ，
+     zhongbz                AS    "zhongbz"                 ，
+     jixing      AS    "jixing"                  ，
+     tongy_name    AS    "tongy_name"              ，
+     lot_flg                 AS    "lot_flg"                 ，
+     zengp_flg               AS    "zengp_flg"               ，
+     jiang_flg               AS    "jiang_flg"               ，
+     fangc_flg               AS    "fangc_flg"              ，
+     tgyp_flg                AS    "tgyp_flg"                ，
+     jink_flg                AS    "jink_flg"                ，
+     yis_flg                 AS    "yis_flg"                 ，
+     gzyp_flg                AS    "gzyp_flg"                ，
+     yxp_flg                 AS    "yxp_flg"                 ，
+     caigou_staff AS    "caigou_staff"            ，
+     ypyh_type               AS    "ypyh_type"               ，
+     geiy_way    AS    "geiy_way"                ，
+     yaop_xingz    AS    "yaop_xingz"              ，
+     shiyz         AS    "shiyz"                   ，
+     gengx_time          AS    "gengx_time"              ，
+     yp_flg                  AS    "yp_flg"                  ，
+     zt                      AS    "zt"                      ，
+     piz_no        AS    "piz_no"                  ，
+     merge_flg   AS    "merge_flg"               ，
+     english_name  AS    "english_name"            ，
+     sf_zdkz                 AS    "sf_zdkz"                 ，
+     sf_tdyp                 AS    "sf_tdyp"                 ，
+     shouy_flg               AS    "shouy_flg"               ，
+     sf_zy                   AS    "sf_zy"                   ，
+     medicinespecicalcontrol AS    "medicinespecicalcontrol" ，
+     barcode       AS    "barcode"                 ，
+     weight       AS    "weight"                  ，
+     height       AS    "height"                  ，
+     length       AS    "length"                  ，
+     width        AS    "width"                  ，
+     youxq_flg    AS    "youxq_flg"               ，
+     forbid_days  AS    "forbid_days"             ，
+     commodity    AS    "commodity"               ，
+     demurrage_day  AS  "demurrage_day"           ，
+     foreboed_days  AS "foreboed_days"           ，
+     ban_days    AS    "ban_days"
+    </sql>
+
+    <select id="selectWmsItem" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_jc_spzl
+        <if test="itemName != null">
+            where chinese_name like CONCAT('%',CONCAT(#{itemName},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+        order by lius_no asc
+    </select>
+
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsSaleAsnOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsSaleAsnOrder">
+        <id column="asn_id" property="asn_id" />
+        <result column="danj_no" property="danj_no" />
+        <result column="hanghao" property="hanghao" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="riqi_date" property="riqi_date" />
+        <result column="danw_id" property="danw_id" />
+        <result column="lianx_staff" property="lianx_staff" />
+        <result column="lianx_phone" property="lianx_phone" />
+        <result column="yew_staff" property="yew_staff" />
+        <result column="yew_type" property="yew_type" />
+        <result column="ruk_type" property="ruk_type" />
+        <result column="shangp_id" property="shangp_id" />
+        <result column="num" property="num" />
+        <result column="note" property="note" />
+        <result column="tiaom_num" property="tiaom_num" />
+        <result column="zt" property="zt" />
+        <result column="yewdj_no_ck" property="yewdj_no_ck" />
+        <result column="new_arrival" property="new_arrival" />
+        <result column="piz_no" property="piz_no" />
+        <result column="from_djbh" property="from_djbh" />
+        <result column="from_hanghao" property="from_hanghao" />
+        <result column="lot" property="lot" />
+        <result column="baoz_danw" property="baoz_danw" />
+        <result column="produce_date" property="produce_date" />
+        <result column="expire_date" property="expire_date" />
+        <result column="yid_type" property="yid_type" />
+        <result column="gongchang" property="gongchang" />
+        <result column="kc_address" property="kc_address" />
+        <result column="to_address" property="to_address" />
+        <result column="from_address" property="from_address" />
+        <result column="to_lot" property="to_lot" />
+        <result column="tskc_flg" property="tskc_flg" />
+        <result column="gongys_no" property="gongys_no" />
+        <result column="dingd_no" property="dingd_no" />
+        <result column="chengbzx_no" property="chengbzx_no" />
+        <result column="yldj_no" property="yldj_no" />
+        <result column="yl_hanghao" property="yl_hanghao" />
+        <result column="to_djbh" property="to_djbh" />
+        <result column="to_hanghao" property="to_hanghao" />
+        <result column="zt001" property="zt001" />
+        <result column="zt002" property="zt002" />
+        <result column="zt003" property="zt003" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+  danj_no      AS "danj_no"     ,
+  hanghao      AS "hanghao"     ,
+  wlzx_code    AS "wlzx_code"   ,
+  huoz_id      AS "huoz_id"     ,
+  riqi_date    AS "riqi_date"   ,
+  danw_id      AS "danw_id"     ,
+  lianx_staff  AS "lianx_staff" ,
+  lianx_phone  AS "lianx_phone" ,
+  yew_staff    AS "yew_staff"   ,
+  yew_type     AS "yew_type"    ,
+  ruk_type     AS "ruk_type"    ,
+  shangp_id    AS "shangp_id"   ,
+  num          AS "num"         ,
+  note         AS "note"        ,
+  tiaom_num    AS "tiaom_num"   ,
+  zt           AS "zt"          ,
+  yewdj_no_ck  AS "yewdj_no_ck" ,
+  new_arrival  AS "new_arrival",
+  piz_no       AS "piz_no"      ,
+  asn_id       AS "asn_id"      ,
+  from_djbh    AS "from_djbh"   ,
+  from_hanghao AS "from_hanghao",
+  danj_riqi    AS "danj_riqi"   ,
+  lot          AS "lot"         ,
+  baoz_danw    AS "baoz_danw"   ,
+  yid_type     AS "yid_type"    ,
+  gongchang    AS "gongchang"   ,
+  kc_address   AS "kc_address"  ,
+  to_address   AS "to_address"  ,
+  from_address AS "from_address",
+  to_lot       AS "to_lot"      ,
+  tskc_flg     AS "tskc_flg"    ,
+  gongys_no    AS "gongys_no"   ,
+  dingd_no     AS "dingd_no"    ,
+  chengbzx_no  AS "chengbzx_no" ,
+  yldj_no      AS "yldj_no"     ,
+  yl_hanghao   AS "yl_hanghao"  ,
+  to_djbh      AS "to_djbh"     ,
+  to_hanghao   AS "to_hanghao"  ,
+  zt001        AS "zt001"       ,
+  zt002        AS "zt002"       ,
+  zt003        AS "zt003"       ,
+  produce_date AS "produce_date",
+  expire_date  AS "expire_date"
+    </sql>
+
+    <select id="selectWmsSaleAsnOrder" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from INF_RK_XTD_BILL
+        <if test="orderCode != null">
+            where danj_no like CONCAT('%',CONCAT(#{orderCode},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+    </select>
+
+</mapper>

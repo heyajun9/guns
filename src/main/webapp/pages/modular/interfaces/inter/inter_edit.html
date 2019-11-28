@@ -1,0 +1,112 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/interfaces/inter/inter_edit.js"]}){
+<form id="interForm" lay-filter="interForm" class="layui-form model-form">
+    <input name="interId" type="hidden"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label">接口名称<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="interfaceName" placeholder="请输入名称" type="text" class="layui-input" lay-verify="required" required/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">业务类型</label>
+        <div class="layui-input-block">
+            <input name="messageContext" placeholder="请输入业务类型" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">传输类型<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="transferType">
+                <option value="UP">上传</option>
+                <option value="DOWN">下传</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">接口类型<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="interfaceType">
+                <option value="I">入库上传</option>
+                <option value="O">出库上传</option>
+                <option value="P">盘点上传</option>
+                <option value="K">库存上传</option>
+                <option value="W">物料下传</option>
+                <option value="C">单位下传</option>
+                <option value="R">入库下传</option>
+                <option value="X">出库下传</option>
+                <option value="Z">职员下传</option>
+                <option value="U">库存下传</option>
+                <option value="T">盘点下传</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否生效<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input type="radio" name="beactive" value="Y" title="生效" checked/>
+            <input type="radio" name="beactive" value="N" title="失效"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">数据格式<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <select id="dataMethod">
+                <option value="JSON">JSON</option>
+                <option value="XML">XML</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">请求地址<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="url" name="url" placeholder="请输入请求地址（IP地址+端口号）" type="text" class="layui-input" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">上游方法</label>
+        <div class="layui-input-block">
+            <input name="upMethod" placeholder="请输入上游方法名" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">下游方法</label>
+        <div class="layui-input-block">
+            <input name="downMethod" placeholder="请输入下游方法" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">上游表</label>
+        <div class="layui-input-block">
+            <input name="upTable" placeholder="请输入上游表" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">下游表</label>
+        <div class="layui-input-block">
+            <input name="downTable" placeholder="请输入下游表" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">存储过程</label>
+        <div class="layui-input-block">
+            <input name="downProduce" placeholder="请输入存储过程" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">账号</label>
+        <div class="layui-input-block">
+            <input name="userName" placeholder="请输入账号" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+            <input name="password" placeholder="请输入密码" type="text" class="layui-input"/>
+        </div>
+    </div>
+    <div class="layui-form-item text-right">
+        <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+    </div>
+</form>
+@}

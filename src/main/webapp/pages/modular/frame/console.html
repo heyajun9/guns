@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>${systemName}</title>
+    <link rel="stylesheet" href="${ctxPath}/assets/common/layui/css/layui.css"/>
+    <link rel="stylesheet" href="${ctxPath}/assets/common/module/admin.css?v=311"/>
+    <link rel="stylesheet" href="${ctxPath}/assets/expand/css/style.css" media="all"/>
+
+    <style>
+        /** 卡片轮播图样式 */
+        .admin-carousel .layui-carousel-ind {
+            position: absolute;
+            top: -41px;
+            text-align: right;
+        }
+
+        .admin-carousel .layui-carousel-ind ul {
+            background: 0 0;
+        }
+
+        .admin-carousel .layui-carousel-ind li {
+            background-color: #e2e2e2;
+        }
+
+        .admin-carousel .layui-carousel-ind li.layui-this {
+            background-color: #999;
+        }
+
+        /** 广告位轮播图 */
+        .admin-news .layui-carousel-ind {
+            height: 45px;
+        }
+
+        .admin-news a {
+            display: block;
+            line-height: 60px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- 加载动画，移除位置在common.js中 -->
+<div class="page-loading">
+    <div class="rubik-loader"></div>
+</div>
+
+<!-- 正文开始 -->
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    访问量(来自码云)<span class="layui-badge layui-bg-black pull-right">日</span>
+                </div>
+                <div class="layui-card-body">
+                    <p class="lay-big-font">12,500</p>
+                    <p>总计访问量<span class="pull-right">32万+ <i class="layui-icon layui-icon-flag"></i></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    下载量(来自码云)<span class="layui-badge layui-bg-black pull-right">日</span>
+                </div>
+                <div class="layui-card-body">
+                    <p class="lay-big-font">2,400</p>
+                    <p>总下载<span class="pull-right">5万+ <i class="layui-icon layui-icon-note"></i></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    GIT PULL(来自码云)<span class="layui-badge layui-bg-black pull-right">日</span>
+                </div>
+                <div class="layui-card-body">
+                    <p class="lay-big-font">1,500</p>
+                    <p>总PULL数<span class="pull-right">5万+ <i class="layui-icon layui-icon-notice"></i></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    GIT PUSH(来自码云)<span class="layui-badge layui-bg-black pull-right">日</span>
+                </div>
+                <div class="layui-card-body">
+                    <p class="lay-big-font">100</p>
+                    <p>总PUSH数<span class="pull-right">1066 <i class="layui-icon layui-icon-diamond"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-lg8 layui-col-md7">
+            <div class="layui-card">
+                <div class="layui-card-header">更新日志</div>
+                <div class="layui-card-body">
+                    <ul class="layui-timeline">
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <h3 class="layui-timeline-title">
+                                    VIP V1.0
+                                    <small>更符合企业级开发的管理系统</small>&emsp;
+                                    <span class="layui-badge-rim">2019-4-1</span>
+                                </h3>
+                                <ul>
+                                    <li class="text-danger">最新独创领域驱动设计 + 数据驱动模式代码生成器</li>
+                                    <li class="text-danger">完美适配Mysql，Oracle，Sql Server，Postgre SQL多种数据库的支持</li>
+                                    <li class="text-danger">集成最新版flowable v6.4.1，提供使用用例，提供原装在线画图工具</li>
+                                    <li class="text-danger">新增haproxy + keepalived实现负载均衡和高可用的安装配置和相关脚本</li>
+                                    <li class="text-danger">提供接入spring cloud微服务方案，轻松搭建基于Guns的微服务</li>
+                                    <li class="text-danger">集成spring定时任务，quartz定时任务，提供分布式调度解决方案</li>
+                                    <li class="text-danger">新增pdf在线预览功能，提供word，excel，ppt，pdf在线预览</li>
+                                    <li class="text-danger">新增excel导入导出示例，可根据自定义sql进行报表导出</li>
+                                    <li class="text-danger">重构字典模块，系统枚举和字典的全新融合</li>
+                                    <li class="text-danger">新增高级表单demo，高级表格demo，增加文件上传，图片上传，富文本编辑框功能</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-lg4 layui-col-md5">
+            <div class="layui-card">
+                <div class="layui-card-header">项目介绍</div>
+                <div class="layui-card-body">
+                    <table class="layui-table layui-text">
+                        <colgroup>
+                            <col width="100">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td>项目名称</td>
+                            <td>Guns管理系统</td>
+                        </tr>
+                        <tr>
+                            <td>gitee地址</td>
+                            <td><a href="https://gitee.com/stylefeng/guns" target="_blank">https://gitee.com/stylefeng/guns</a></td>
+                        </tr>
+                        <tr>
+                            <td>主要特色</td>
+                            <td>开源 / 简洁 / 功能丰富 / 易上手 / 文档丰富 / 社区活跃</td>
+                        </tr>
+                        <tr>
+                            <td>获取文档</td>
+                            <td>
+                                <a href="https://gitee.com/stylefeng/guns/wikis/Guns%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3?sort_id=200535" target="_blank" class="layui-btn layui-btn-sm">免费文档</a>
+                                <a href="https://www.stylefeng.cn/doc/guns" target="_blank" class="layui-btn layui-btn-danger layui-btn-sm">付费文档(更全)</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>获取视频教程</td>
+                            <td>
+                                <a href="https://gitee.com/stylefeng/guns/wikis/Guns%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B?sort_id=55850" target="_blank" class="layui-btn layui-btn-sm">免费视频</a>
+                                <a href="https://www.stylefeng.cn/video/roses" target="_blank" class="layui-btn layui-btn-danger layui-btn-sm">付费视频(更全)</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- js部分 -->
+@/* 加入contextPath属性和session超时的配置 */
+<script type="text/javascript">
+    var Feng = {
+        ctxPath: "",
+        addCtx: function (ctx) {
+            if (this.ctxPath === "") {
+                this.ctxPath = ctx;
+            }
+        }
+    };
+    Feng.addCtx("${ctxPath}");
+</script>
+
+<script type="text/javascript" src="${ctxPath}/assets/common/layui/layui.js"></script>
+<script type="text/javascript" src="${ctxPath}/assets/common/js/common.js?v=311"></script>
+
+<script>
+    layui.use(['layer', 'carousel'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var carousel = layui.carousel;
+        var device = layui.device;
+
+        // 渲染轮播
+        carousel.render({
+            elem: '.layui-carousel',
+            width: '100%',
+            height: '60px',
+            arrow: 'none',
+            autoplay: true,
+            trigger: device.ios || device.android ? 'click' : 'hover',
+            anim: 'fade'
+        });
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsInterfaceLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsInterfaceLog">
+        <id column="operation_log_id" property="operationLogId" />
+        <result column="log_type" property="logType" />
+        <result column="log_name" property="logName" />
+        <result column="user_id" property="userId" />
+        <result column="class_name" property="className" />
+        <result column="method" property="method" />
+        <result column="create_time" property="createTime" />
+        <result column="succeed" property="succeed" />
+        <result column="message" property="message" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        operation_log_id AS "operationLogId", log_type AS "logType", log_name AS "logName", user_id AS "userId", class_name AS "className", method AS "method", create_time AS "createTime", succeed AS "succeed", message AS "message"
+    </sql>
+
+    <select id="getInterfaceLogs" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from wms_interface_log where 1 = 1
+        <if test="beginTime != null and beginTime !='' and endTime != null and endTime != ''">
+            and (create_time between to_date(CONCAT(#{beginTime},' 00:00:00'),'YYYY-MM-DD HH24:MI:SS') and to_date(CONCAT(#{endTime},' 23:59:59'),'YYYY-MM-DD HH24:MI:SS'))
+        </if>
+        <if test="logName != null and logName !=''">
+            and log_name like CONCAT('%',CONCAT(#{logName},'%'))
+        </if>
+        <if test="logType != null and logType !=''">
+            and log_type like CONCAT('%',CONCAT(#{logType},'%'))
+        </if>
+        <if test="status != null and status !=''">
+            and succeed like CONCAT('%',CONCAT(#{status},'%'))
+        </if>
+        order by create_time desc
+    </select>
+
+    <select id="getWmsInterfaceLogList" resultType="cn.stylefeng.guns.modular.servlet.entity.WmsInterfaceLog">
+        select
+        <include refid="Base_Column_List"/>
+        from wms_interface_log
+        <if test="type != null">
+            where succeed = #{type}
+        </if>
+        order by create_time desc
+    </select>
+
+</mapper>

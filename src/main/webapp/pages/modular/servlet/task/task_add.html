@@ -1,0 +1,71 @@
+@layout("/common/_container.html",{bg:"bg-white",js:["/assets/modular/servlet/task/task_add.js"]}){
+<form id="taskForm" lay-filter="taskForm" class="layui-form model-form">
+	<input name="jobId" type="hidden"/>
+	<div class="layui-form-item">
+		<label class="layui-form-label">任务名称<span style="color: red;">*</span></label>
+		<div class="layui-input-block">
+			<input name="jobName" placeholder="请输入名称" type="text" class="layui-input" lay-verify="required" required/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">任务组名<span style="color: red;">*</span></label>
+		<div class="layui-input-block">
+			<input name="jobGroupName" placeholder="请输入任务组" type="text" class="layui-input" lay-verify="required" required/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否启动<span style="color: red;">*</span></label>
+		<div class="layui-input-block">
+			<input type="radio" name="startStaus" value="0" title="启动" checked/>
+			<input type="radio" name="startStaus" value="1" title="关闭"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">是否运行<span style="color: red;">*</span></label>
+		<div class="layui-input-block">
+			<input type="radio" name="runStatus" value="0" title="生效" checked/>
+			<input type="radio" name="runStatus" value="1" title="失效"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">触发器<span style="color: red;">*</span></label>
+		<div class="layui-input-block">
+			<input id="triggerName" name="triggerName" placeholder="请输入触发器" type="text" class="layui-input" autocomplete="off"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">触发器组</label>
+		<div class="layui-input-block">
+			<input name="triggerGroupName" placeholder="请输入触发器组" type="text" class="layui-input"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">时间</label>
+		<div class="layui-input-block">
+			<input name="corn" placeholder="请输入时间" type="text" class="layui-input"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">类名</label>
+		<div class="layui-input-block">
+			<input name="className" placeholder="请输入类名" type="text" class="layui-input"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">方法名</label>
+		<div class="layui-input-block">
+			<input name="methodName" placeholder="请输入方法名" type="text" class="layui-input"/>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">备注</label>
+		<div class="layui-input-block">
+			<input name="note" placeholder="请输入备注" type="text" class="layui-input"/>
+		</div>
+	</div>
+	<div class="layui-form-item text-right">
+		<button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+		<button class="layui-btn" lay-filter="btnSubmit" lay-submit>保存</button>
+	</div>
+</form>
+@}

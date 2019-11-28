@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.InsertMapMapper">
+
+
+    <insert id="insertInfo" parameterType="cn.stylefeng.guns.modular.servlet.entity.InsertMap" databaseId="oracle">
+        insert  into ${tableName}
+            <foreach collection="params.keys" item="key" open="(" close=")" separator="," >
+                ${key}
+            </foreach>
+            values
+            <foreach collection="params.keys"  item="key" open="(" close=")" separator=",">
+                #{params.${key}}
+            </foreach>
+    </insert>
+
+    <update id="updateInfo" parameterType="cn.stylefeng.guns.modular.servlet.entity.InsertMap" databaseId="oracle">
+        UPDATE ${tableName} set
+        <foreach item="value" index="key" collection="params.keys" separator=",">
+            <if test="key != 'id'">
+                ${key} = #{value}
+            </if>
+        </foreach>
+        WHERE
+        <foreach item="value" index="key" collection="params.keys" separator=",">
+            <if test="key == 'id'">
+                ID = #{value}
+            </if>
+        </foreach>
+    </update>
+
+    <select id="findFieldByTableName" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT
+            COLUMN_NAME
+        FROM
+            information_schema.COLUMNS
+        WHERE
+            table_name = #{tableName};
+    </select>
+
+
+</mapper>

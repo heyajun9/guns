@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.interfaces.mapper.TableMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.interfaces.entity.TableOption">
+        <id column="option_id" property="optionId" />
+        <id column="inter_id" property="interId" />
+        <result column="up_column_name" property="upColumnName" />
+        <result column="down_column_name" property="downColumnName" />
+        <result column="parent_menu" property="parentMenu" />
+        <result column="is_flag" property="isFlag" />
+        <result column="default_value" property="defaultValue" />
+        <result column="type_name" property="typeName" />
+        <result column="column_size" property="columnSize" />
+        <result column="nullable" property="nullable" />
+        <result column="remarks" property="remarks" />
+        <result column="table_name" property="tableName" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="create_user" property="createUser" />
+        <result column="update_user" property="updateUser" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        option_id AS "optionId", inter_id AS "interId", up_column_name AS "upColumnName", down_column_name AS "downColumnName", parent_menu AS "parentMenu",is_flag AS "isFlag",default_value AS "defaultValue",
+        type_name AS "typeName", column_size AS "columnSize", nullable AS "nullable", remarks AS "remarks", table_name AS "tableName", create_time AS "createTime", update_time AS "updateTime", create_user AS "createUser", update_user AS "updateUser"
+    </sql>
+
+    <select id="selectTable" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from INTERFACE_OPTION_T
+        <if test="upName != null">
+            where up_column_name like CONCAT('%',CONCAT(#{upName},'%'))
+        </if>
+        <if test="downName != null and downName !=''">
+            and down_column_name like CONCAT('%',CONCAT(#{downName},'%'))
+        </if>
+        order by option_id asc
+    </select>
+
+    <select id="selectByTable" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from INTERFACE_OPTION_T
+        <if test="tableName != null">
+            where table_name like CONCAT('%',CONCAT(#{tableName},'%'))
+        </if>
+        order by option_id asc
+    </select>
+
+    <select id="selectTableOption" resultType="cn.stylefeng.guns.modular.interfaces.entity.TableOption">
+        select
+        <include refid="Base_Column_List"/>
+        from INTERFACE_OPTION_T
+        <if test="interId != null">
+            where inter_id =#{interId}
+        </if>
+        order by option_id asc
+    </select>
+
+    <select id="selectTableOptionByTable" resultType="cn.stylefeng.guns.modular.interfaces.entity.TableOption">
+        select
+        <include refid="Base_Column_List"/>
+        from INTERFACE_OPTION_T
+        <if test="tableName != null">
+            where table_name =#{tableName}
+        </if>
+        order by option_id asc
+    </select>
+
+</mapper>

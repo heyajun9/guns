@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsCountDownMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsCountDown">
+        <result column="danj_no" property="danj_no" />
+        <result column="hanghao" property="hanghao" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="riqi_char" property="riqi_char" />
+        <result column="caoz_staff" property="caoz_staff" />
+        <result column="shangp_id" property="shangp_id" />
+        <result column="caoz_staff" property="caoz_staff" />
+        <result column="yingk_num" property="yingk_num" />
+        <result column="lot" property="lot" />
+        <result column="kuc_state" property="kuc_state" />
+        <result column="youx_char" property="youx_char" />
+        <result column="shengc_char" property="shengc_char" />
+        <result column="yuanyin" property="yuanyin" />
+        <result column="zt" property="zt" />
+        <result column="pd_num" property="pd_num" />
+        <result column="kc_num" property="kc_num" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+  danj_no           AS  "danj_no",
+  hanghao           AS  "hanghao",
+  wlzx_code         AS  "wlzx_code",
+  huoz_id           AS  "huoz_id",
+  riqi_char         AS  "riqi_char",
+  caoz_staff        AS  "caoz_staff",
+  shangp_id         AS  "shangp_id",
+  yingk_num         AS  "yingk_num",
+  lot               AS  "lot",
+  kuc_state         AS  "kuc_state",
+  youx_char         AS  "youx_char",
+  shengc_char       AS  "shengc_char",
+  yuanyin           AS  "yuanyin",
+  zt                AS  "zt",
+  pd_num            AS  "pd_num",
+  kc_num            AS  "kc_num"
+    </sql>
+
+    <select id="selectWmsCountDown" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_pd_xc_bill
+        <if test="orderCode != null">
+            where danj_no like CONCAT('%',CONCAT(#{orderCode},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+        order by danj_no desc
+    </select>
+
+    <select id="selectWmsCountDownByCode" resultType="cn.stylefeng.guns.modular.servlet.entity.WmsCountDown">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_pd_xc_bill
+        where zt='N'
+        <if test="orderCode != null">
+            and danj_no = #{orderCode}
+        </if>
+        order by danj_no asc
+    </select>
+
+    <select id="selectObject" resultType="object">
+        select  ${tableField}
+        from inf_pd_xc_bill
+        <if test="orderCode != null">
+            where danj_no = #{orderCode}
+        </if>
+        <if test="rowNum != null">
+            and hanghao = #{rowNum}
+        </if>
+        order by danj_no asc
+    </select>
+
+</mapper>

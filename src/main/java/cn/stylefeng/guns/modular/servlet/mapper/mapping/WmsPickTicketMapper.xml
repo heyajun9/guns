@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.servlet.mapper.WmsPickTicketOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.servlet.entity.WmsPickTicketOrder">
+        <id column="pickticket" property="pickticket" />
+        <result column="danj_no" property="danj_no" />
+        <result column="hanghao" property="hanghao" />
+        <result column="wlzx_code" property="wlzx_code" />
+        <result column="huoz_id" property="huoz_id" />
+        <result column="danw_id" property="danw_id" />
+        <result column="riqi_date" property="riqi_date" />
+        <result column="yew_staff" property="yew_staff" />
+        <result column="tih_way" property="tih_way" />
+        <result column="xiaos_type" property="xiaos_type" />
+        <result column="fah_type" property="fah_type" />
+        <result column="shangp_id" property="shangp_id" />
+        <result column="lot_request" property="lot_request" />
+        <result column="note" property="note" />
+        <result column="ckd_type" property="ckd_type" />
+        <result column="guke_name" property="guke_name" />
+        <result column="guke_no" property="guke_no" />
+        <result column="address_no" property="address_no" />
+        <result column="address" property="address" />
+        <result column="shouh_phone" property="shouh_phone" />
+        <result column="shouh_staff" property="shouh_staff" />
+        <result column="postcode" property="postcode" />
+        <result column="peis_notes" property="peis_notes" />
+        <result column="daoh_time" property="daoh_time" />
+        <result column="jiaj_flg" property="jiaj_flg" />
+        <result column="tiaom_num" property="tiaom_num" />
+        <result column="price" property="price" />
+        <result column="jifen" property="jifen" />
+        <result column="amount" property="amount" />
+        <result column="tax_amount" property="tax_amount" />
+        <result column="from_address" property="from_address" />
+        <result column="jies_price" property="jies_price" />
+        <result column="jies_amount" property="jies_amount" />
+        <result column="zt" property="zt" />
+        <result column="carrier_name" property="carrier_name" />
+        <result column="carrier_id" property="carrier_id" />
+        <result column="danj_no_wsdd" property="danj_no_wsdd" />
+        <result column="platform_username" property="platform_username" />
+        <result column="payer_id" property="payer_id" />
+        <result column="payer_name" property="payer_name" />
+        <result column="danj_no_sap" property="danj_no_sap" />
+        <result column="bills_type" property="bills_type" />
+        <result column="chongh_erp_flg" property="chongh_erp_flg" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="area" property="area" />
+        <result column="strategyno" property="strategyno" />
+        <result column="baoz_danw" property="baoz_danw" />
+        <result column="yid_type" property="yid_type" />
+        <result column="gongchang" property="gongchang" />
+        <result column="kc_address" property="kc_address" />
+        <result column="to_address" property="to_address" />
+        <result column="from_address" property="from_address" />
+        <result column="to_lot" property="to_lot" />
+        <result column="tskc_flg" property="tskc_flg" />
+        <result column="gongys_no" property="gongys_no" />
+        <result column="dingd_no" property="dingd_no" />
+        <result column="chengbzx_no" property="chengbzx_no" />
+        <result column="yldj_no" property="yldj_no" />
+        <result column="yl_hanghao" property="yl_hanghao" />
+        <result column="to_djbh" property="to_djbh" />
+        <result column="to_hanghao" property="to_hanghao" />
+        <result column="zt001" property="zt001" />
+        <result column="zt002" property="zt002" />
+        <result column="zt003" property="zt003" />
+        <result column="produce_date" property="produce_date" />
+        <result column="expire_date" property="expire_date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+  danj_no           AS  "danj_no"            ,
+  hanghao           AS  "hanghao",
+  wlzx_code         AS  "wlzx_code",
+  huoz_id           AS  "huoz_id",
+  danw_id           AS  "danw_id",
+  riqi_date         AS  "riqi_date",
+  yew_staff         AS  "yew_staff",
+  tih_way           AS  "tih_way",
+  xiaos_type        AS  "xiaos_type",
+  fah_type          AS  "fah_type",
+  shangp_id         AS  "shangp_id",
+  num               AS  "num",
+  lot_request       AS  "lot_request",
+  note              AS  "note",
+  ckd_type          AS  "ckd_type",
+  guke_name         AS  "guke_name",
+  guke_no           AS  "guke_no",
+  address_no        AS  "address_no",
+  address           AS  "address",
+  shouh_phone       AS  "shouh_phone",
+  shouh_staff       AS  "shouh_staff",
+  postcode          AS  "postcode",
+  peis_notes        AS  "peis_notes",
+  daoh_time         AS  "daoh_time",
+  jiaj_flg          AS  "jiaj_flg",
+  tiaom_num         AS  "tiaom_num",
+  price             AS  "price",
+  jifen             AS  "jifen",
+  amount            AS  "amount",
+  tax_amount        AS  "tax_amount",
+  jies_price        AS  "jies_price",
+  jies_amount       AS  "jies_amount",
+  zt                AS  "zt",
+  carrier_name      AS  "carrier_name",
+  carrier_id        AS  "carrier_id",
+  danj_no_wsdd      AS  "danj_no_wsdd",
+  shuip_type        AS  "shuip_type",
+  platform_username AS  "platform_username",
+  payer_id          AS  "payer_id",
+  payer_name        AS  "payer_name",
+  danj_no_sap       AS  "danj_no_sap",
+  bills_type        AS  "bills_type",
+  chongh_erp_flg    AS  "chongh_erp_flg",
+  province          AS  "province",
+  city              AS  "city",
+  area              AS  "area",
+  pickticket        AS  "pickticket",
+  strategyno        AS  "strategyno",
+  baoz_danw         AS  "baoz_danw",
+  yid_type          AS  "yid_type",
+  gongchang         AS  "gongchang",
+  kc_address        AS  "kc_address",
+  to_address        AS  "to_address",
+  from_address      AS  "from_address",
+  to_lot            AS  "to_lot",
+  tskc_flg          AS  "tskc_flg",
+  gongys_no         AS  "gongys_no",
+  dingd_no          AS  "dingd_no" ,
+  chengbzx_no       AS  "chengbzx_no",
+  yldj_no           AS  "yldj_no",
+  yl_hanghao        AS  "yl_hanghao",
+  to_djbh           AS  "to_djbh",
+  to_hanghao        AS  "to_hanghao",
+  zt001             AS  "zt001",
+  zt002             AS  "zt002",
+  zt003             AS  "zt003",
+  produce_date      AS  "produce_date",
+  expire_date       AS  "expire_date"
+    </sql>
+
+    <select id="selectWmsPickTicketOrder" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from inf_ck_kpd_bill
+        <if test="orderCode != null">
+            where danj_no like CONCAT('%',CONCAT(#{orderCode},'%'))
+        </if>
+        <if test="itemCode != null and itemCode !=''">
+            and shangp_id like CONCAT('%',CONCAT(#{itemCode},'%'))
+        </if>
+        order by pickticket desc
+    </select>
+
+</mapper>
